@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carlos Salazar | Diseño de Branding para Pequeños Negocios</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- VARIABLES DE COLOR Y CONFIGURACIÓN --- */
+        :root {
+            --azul-oscuro: #0B192C;
+            --azul-medio: #1E3E62;
+            --naranja: #FF6500;
+            --naranja-hover: #E05900;
+            --blanco: #FFFFFF;
+            --gris-claro: #F5F7F8;
+            --texto-suave: #94A3B8;
+            --fuente: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--fuente);
+            background-color: var(--azul-oscuro);
+            color: var(--blanco);
+            line-height: 1.6;
+        }
+
+        container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* --- BOTONES --- */
+        .btn {
+            display: inline-block;
+            background-color: var(--naranja);
+            color: var(--blanco);
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background-color: var(--naranja-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(255, 101, 0, 0.3);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--azul-medio);
+            color: var(--blanco);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--azul-medio);
+            transform: translateY(-2px);
+        }
+
+        /* --- HEADER / NAV --- */
+        header {
+            background-color: rgba(11, 25, 44, 0.95);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--naranja);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: color 0.3s;
+            color: var(--texto-suave);
+        }
+
+        .nav-links a:hover {
+            color: var(--naranja);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            padding: 100px 0 80px 0;
+            text-align: center;
+            background: radial-gradient(circle at top right, rgba(30, 62, 98, 0.5), transparent);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero h1 span {
+            color: var(--naranja);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--texto-suave);
+            max-width: 600px;
+            margin: 0 auto 40px auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        /* --- SECCIONES GENERALES --- */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 50px;
+        }
+
+        .section-title span {
+            color: var(--naranja);
+        }
+
+        /* --- SOBRE MÍ --- */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--naranja);
+        }
+
+        .about-text p {
+            color: var(--texto-suave);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .about-mock-img {
+            background-color: var(--azul-medio);
+            height: 350px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            font-weight: 600;
+            color: var(--texto-suave);
+        }
+
+        /* --- SERVICIOS --- */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: var(--azul-medio);
+            padding: 40px 30px;
+            border-radius: 12px;
+            transition: transform 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--naranja);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .service-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            color: var(--texto-suave);
+            font-size: 0.95rem;
+        }
+
+        /* --- PORTAFOLIO --- */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .portfolio-item {
+            background-color: var(--azul-medio);
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            height: 280px;
+            display: flex;
+            align-items: flex-end;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Placeholder para tus imágenes reales de portafolio */
+        .p-1 { background: linear-gradient(135deg, #1E3E62 0%, #0B192C 100%); }
+        .p-2 { background: linear-gradient(135deg, #FF6500 0%, #1E3E62 100%); }
+        .p-3 { background: linear-gradient(135deg, #0B192C 0%, #FF6500 100%); }
+
+        .portfolio-info h4 {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+
+        .portfolio-info p {
+            color: var(--naranja);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* --- TESTIMONIOS --- */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background-color: rgba(30, 62, 98, 0.3);
+            padding: 35px;
+            border-radius: 12px;
+            border-left: 4px solid var(--naranja);
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: var(--gris-claro);
+        }
+
+        .client-name {
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .client-biz {
+            color: var(--texto-suave);
+            font-size: 0.85rem;
+        }
+
+        /* --- CONTACTO --- */
+        .contact-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: var(--azul-medio);
+            padding: 40px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border-radius: 6px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background-color: var(--azul-oscuro);
+            color: var(--blanco);
+            font-family: var(--fuente);
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--naranja);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #060F1B;
+            text-align: center;
+            padding: 40px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--texto-suave);
+            font-size: 0.9rem;
+        }
+
+        /* --- RESPONSIVO --- */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero h1 { font-size: 2.3rem; }
+            .about-grid { grid-template-columns: 1fr; gap: 30px; }
+            .hero-buttons { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER / NAVEGACIÓN -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">Carlos<span>Salazar</span></div>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#sobre-mi">Sobre mí</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#portafolio">Portafolio</a></li>
+                <li><a href="#testimonios">Testimonios</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="inicio" class="hero">
+        <div class="container">
+            <h1>Creamos la identidad visual de tu negocio para <span>crecer</span></h1>
+            <p>Ayudo a pequeños negocios y emprendedores a destacar en el mercado a través de branding estratégico, profesional y con personalidad propia.</p>
+            <div class="hero-buttons">
+                <a href="#contacto" class="btn">Impulsa tu negocio hoy</a>
+                <a href="#servicios" class="btn btn-outline">Ver servicios</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOBRE MÍ -->
+    <section id="sobre-mi">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text">
+                    <h3>Hola, soy Carlos Salazar</h3>
+                    <p>Me apasiona transformar las ideas de pequeños empresarios en marcas sólidas y visualmente memorables. Sé que tu negocio es único, y por eso no creo en las plantillas prefabricadas.</p>
+                    <p>Diseño desde cero pensando en tu cliente ideal, combinando la estrategia con la creatividad para que logres la confianza que necesitas para vender más.</p>
+                </div>
+                <div class="about-mock-img">
+                    <!-- Espacio pensado para poner tu foto trabajando o un mockup propio -->
+                    [ Tu Foto o Mockup Aquí ]
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICIOS -->
+    <section id="servicios" style="background-color: #091424;">
+        <div class="container">
+            <h2 class="section-title">Servicios a tu <span>medida</span></h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <span class="service-icon">🎨</span>
+                    <h3>Diseño de Logo</h3>
+                    <p>El corazón de tu marca. Un logotipo único, escalable y memorable que represente los valores de tu negocio.</p>
+                </div>
+                <div class="service-card">
+                    <span class="service-icon">📝</span>
+                    <h3>Manuales de Estilo</h3>
+                    <p>La guía de reglas para que tu marca se mantenga consistente. Incluye paleta de colores, tipografías y usos correctos.</p>
+                </div>
+                <div class="service-card">
+                    <span class="service-icon">💼</span>
+                    <h3>Papelería</h3>
+                    <p>Tarjetas de presentación, hojas membretadas, carpetas y todo el material corporativo físico que necesites.</p>
+                </div>
+                <div class="service-card">
+                    <span class="service-icon">📱</span>
+                    <h3>Redes Sociales</h3>
+                    <p>Plantillas y diseños listos para tus publicaciones e historias en Instagram o Facebook. Coherencia en el mundo digital.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PORTAFOLIO -->
+    <section id="portafolio">
+        <div class="container">
+            <h2 class="section-title">Marcas que han <span>crecido</span></h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-item p-1">
+                    <div class="portfolio-info">
+                        <h4>Café Altura</h4>
+                        <p>Logo & Identidad Visual</p>
+                    </div>
+                </div>
+                <div class="portfolio-item p-2">
+                    <div class="portfolio-info">
+                        <h4>Consultoría Alpha</h4>
+                        <p>Manual de Estilo & Papelería</p>
+                    </div>
+                </div>
+                <div class="portfolio-item p-3">
+                    <div class="portfolio-info">
+                        <h4>FitLife Studio</h4>
+                        <p>Branding & Redes Sociales</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIOS -->
+    <section id="testimonios" style="background-color: #091424;">
+        <div class="container">
+            <h2 class="section-title">Lo que dicen los <span>clientes</span></h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p>"Trabajar con Carlos cambió por completo el rumbo de mi negocio. Los clientes ahora nos perciben como una empresa grande y profesional."</p>
+                    <div class="client-name">María Fernández</div>
+                    <div class="client-biz">Fundadora de Café Altura</div>
+                </div>
+                <div class="testimonial-card">
+                    <p>"Entendió a la perfección lo que queríamos transmitir desde la primera reunión. El manual de estilo nos ahorra muchísimo tiempo."</p>
+                    <div class="client-name">Jorge Ramírez</div>
+                    <div class="client-biz">Director en Alpha Consultores</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto">
+        <div class="container">
+            <h2 class="section-title">¿Listo para hacer <span>crecer</span> tu marca?</h2>
+            <div class="contact-container">
+                <form action="#" method="POST" onsubmit="event.preventDefault(); alert('¡Mensaje enviado con éxito! (Esto es una demostración)');">
+                    <div class="form-group">
+                        <label for="name">Nombre / Empresa</label>
+                        <input type="text" id="name" required placeholder="Ej. Tu Negocio S.L.">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Correo Electrónico</label>
+                        <input type="email" id="email" required placeholder="tu@correo.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="msg">Cuéntame sobre tu proyecto</label>
+                        <textarea id="msg" rows="5" required placeholder="¿Qué servicios necesitas y cuál es tu objetivo?"></textarea>
+                    </div>
+                    <button type="submit" class="btn" style="width: 100%;">Enviar Mensaje</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 Carlos Salazar. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
